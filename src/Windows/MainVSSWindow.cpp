@@ -137,6 +137,12 @@ void MainVSSWindow::selectCorrectFrame() {
     this->m_currentFrameLocker.lock();
     this->m_currentFrame = frameAux + frameAux2 + aux;
     this->m_currentFrameLocker.unlock();
+  }else if(frameType == "Edges Segmented"){
+    cv::Mat currentFrame;
+    currentFrame = Vision::singleton().getEdgesFrame(currentFrame);
+    this->m_currentFrameLocker.lock();
+    this->m_currentFrame = currentFrame;
+    this->m_currentFrameLocker.unlock();
   } else {
     throw std::runtime_error("Invalid visualization option");
   }

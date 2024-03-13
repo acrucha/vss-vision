@@ -457,3 +457,9 @@ double Vision::getVisionRunTime() {
   this->_visionStatusLocker.unlock();
   return ret;
 }
+
+cv::Mat Vision::getEdgesFrame(cv::Mat &frame){
+    getCurrentFrame(frame);
+    cv::Mat newFrame = EdgesSegmentation::run(frame);
+    return newFrame;
+}

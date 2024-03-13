@@ -32,4 +32,14 @@ public:
 	
 };
 
+namespace EdgesSegmentation {
+	cv::Mat low_contrast(cv::Mat& img);
+	cv::Mat polygon_contours(cv::Mat& img_proc, cv::Mat& img_base);
+	bool not_on_the_border(int height, int width, const std::vector<cv::Point>& contour);
+	cv::Mat run(cv::Mat& img);
+	cv::Mat softLightFocus(cv::Mat& img_base);
+	cv::Mat sharpnessIncrease(cv::Mat& img_base);
+	cv::Mat thresholding(cv::Mat& img_base);
+}
+
 #endif
